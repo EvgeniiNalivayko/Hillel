@@ -12,11 +12,11 @@ alert(admin);
 
 //Task #2
 
-let ourPlanetName = 'Earth';
-let currentUserName = "Pet";
+const ourPlanetName = 'Earth';
+const currentUserName = "Pet";
 
 //Task #3
 
-let string1 = '10' + 10;
+const string1 = '10' + 10;
 
 console.log(typeof string1);
