@@ -1,3 +1,4 @@
+'use strict'
 //Task #1
 const user = {}
 user.name = 'John';
