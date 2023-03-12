@@ -1,7 +1,5 @@
 'use strict';
 //Задание 1
-let a;
-let b;
 if ((b > 0 && a === b) || !isNaN(b)) {
     //// 1 true
 } else {
@@ -9,7 +7,7 @@ if ((b > 0 && a === b) || !isNaN(b)) {
 }
 
 //Задание 2
-let numOrStr = prompt('input number or string');
+const numOrStr = prompt('input number or string');
 console.log(numOrStr)
 
 switch (numOrStr) {
