@@ -2,19 +2,23 @@
 
 const yearsOrAges = +prompt('Введите число:');
 
-if (!isNaN(yearsOrAges)) {
-    if (yearsOrAges % 10 === 1) {
-        alert(yearsOrAges + ' год.')
-    } else if (yearsOrAges >= 11 && yearsOrAges <= 19 ){
-        alert(yearsOrAges + ' лет.')
-    } else if (
-        yearsOrAges % 10 === 2 ||
-        yearsOrAges % 10 === 3 ||
-        yearsOrAges % 10 === 4) {
-        alert(yearsOrAges + ' года.')
-    } else {
-        alert(yearsOrAges + ' лет.')
-    }
+if (isNaN(yearsOrAges)) {
+    alert('Вы не ввели число');
 } else {
-    alert('Вы не ввели число')
+    let correctYearsForm;
+
+    if (yearsOrAges % 10 === 1) {
+        correctYearsForm = 'год';
+    } else if (yearsOrAges >= 11 && yearsOrAges <= 19 ){
+        correctYearsForm = 'лет';
+    } else if (
+        (yearsOrAges % 10 >= 2 && yearsOrAges % 10 <= 4) && (yearsOrAges % 100 <=10 || yearsOrAges % 100 >= 20)){
+        correctYearsForm = 'года';
+    } else {
+       correctYearsForm = 'лет';
+    }
+    alert(yearsOrAges + ' ' + correctYearsForm);
 }
+
+
+
