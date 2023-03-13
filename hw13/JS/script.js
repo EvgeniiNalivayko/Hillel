@@ -11,8 +11,7 @@ if (isNaN(yearsOrAges)) {
         correctYearsForm = 'год';
     } else if (yearsOrAges >= 11 && yearsOrAges <= 19 ){
         correctYearsForm = 'лет';
-    } else if (
-        (yearsOrAges % 10 >= 2 && yearsOrAges % 10 <= 4) && (yearsOrAges % 100 <=10 || yearsOrAges % 100 >= 20)){
+    } else if ((yearsOrAges % 10 >= 2 && yearsOrAges % 10 <= 4) && (yearsOrAges % 100 <=10 || yearsOrAges % 100 >= 20)){
         correctYearsForm = 'года';
     } else {
        correctYearsForm = 'лет';
