@@ -6,11 +6,11 @@ const padString = (str, num, sym = '', bool = true) => {
 
     let result = str;
 
-    if (str.length < num && bool === true) {
+    if (str.length < num && bool) {
         for (let i = 0; i <= (num - str.length); i++) {
             result += sym;
         }
-    } else if (str.length < num && bool === false) {
+    } else if (str.length < num && !bool) {
         for (let i = 0; i <= (num - str.length); i++) {
             result = sym + str;
         }
@@ -20,4 +20,4 @@ const padString = (str, num, sym = '', bool = true) => {
     return result;
 }
 
-console.log(padString('hellowww', 12, '*',false));
+console.log(padString('hello', 12, '*',false));
