@@ -1,3 +1,4 @@
+'use strict'
 //1
 let numbers = '';
 for (let i = 10; i <= 20; i++) {
@@ -26,6 +27,7 @@ for (let i = 15n; i <= 35n; i++) {
 }
 //6
 let sum1 = 0;
+
 let iteration_num = 0;
 for (let i = 1; i <= 500; i++) {
     sum1 += i;

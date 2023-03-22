@@ -1,3 +1,4 @@
+'use strict'
 const num = +prompt('Введите число:', '7')
 let minDivisor;
 if (num < 1 || isNaN(num)) {
