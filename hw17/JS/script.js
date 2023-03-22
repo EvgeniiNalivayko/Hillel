@@ -15,7 +15,7 @@ const padString = (str, num, sym = '', bool = true) => {
             result = sym + str;
         }
     } else {
-        result = str.substr(0, num);
+        result = str.substring(0, num);
     }
     return result;
 }
