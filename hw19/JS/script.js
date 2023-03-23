@@ -1,13 +1,8 @@
 'use strict';
-const ingredientPrice = (borschtLiters) => {
-    const potatoPrice = 13;
-    const totalPotatoesInKg = Math.ceil(borschtLiters * 4 * 75 * 0.001);
+const ingredientPrice = (borschtLiters, borschtPotato, potatoPrice,onePotatoWeightInGram = 75) => {
+    const totalPotatoesInKg = Math.ceil(borschtLiters * borschtPotato * onePotatoWeightInGram * 0.001);
     return totalPotatoesInKg * potatoPrice;
 };
 
-const totalPrice = ingredientPrice(48);
+const totalPrice = ingredientPrice(48,4,13);
 console.log(`Стоимость покупки картошки: ${totalPrice} грн.`);
-
-
-//if (liters === parseFloat(liters)){}
-// String(parseFloat(value, 10)) === String(value)
