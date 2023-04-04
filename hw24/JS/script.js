@@ -1,6 +1,6 @@
 'use strict'
-let arr = [1, 2, 3];
-let arr2 = [4, 5, 6];
+const arr = [1, 2, 3];
+const arr2 = [4, 5, 6];
 //1
 arr.concat(arr2);
 //2
@@ -10,7 +10,7 @@ arr.push(4, 5, 6);
 //4
 arr.unshift(4, 5, 6)
 
-let arr3 = ['js', 'css', 'jq'];
+const arr3 = ['js', 'css', 'jq'];
 //5
 alert(`Решение №5: "${arr3[0]}"`);
 //6
@@ -32,43 +32,43 @@ arr4.splice(1, 0, 'a', 'b');
 arr4.splice(6, 0, 'c');
 arr4.splice(8, 0, 'e')
 //13
-let arr5 = [3, 4, 1, 2, 7];
+const arr5 = [3, 4, 1, 2, 7];
 arr5.sort(function (a, b) {
     return a - b;
 });
 //14
-let arr6 = [5, 6, 7, 8, 9];
-let result = arr6.reduce(function (sum, item) {
+const arr6 = [5, 6, 7, 8, 9];
+const result = arr6.reduce(function (sum, item) {
     return sum + item;
 })
 //15
-let arr6Pow = arr6.map(function (item) {
+const arr6Pow = arr6.map(function (item) {
     return Math.pow(item, 2)
 })
 //16
-let arr0 = [1, -3, 5, 6, -7, 8, 9, -11];
-let unPositiveArr = arr0.filter(function (item) {
+const arr0 = [1, -3, 5, 6, -7, 8, 9, -11];
+const unPositiveArr = arr0.filter(function (item) {
     return item < 0;
 })
 //17
-let evenNumArr = arr0.filter(function (item) {
+const evenNumArr = arr0.filter(function (item) {
     return item % 2 === 0;
 })
 //18
-let arrS = ['aaa', 'aaaqqq', 'zzzqq', 'zz', 'qsaa', 'q', 'az'];
+const arrS = ['aaa', 'aaaqqq', 'zzzqq', 'zz', 'qsaa', 'q', 'az'];
 
-let moreFiveSymbolArr = arrS.filter(function (item) {
+const moreFiveSymbolArr = arrS.filter(function (item) {
     return item.length > 5;
 })
 //19
-let arrr = [1, 2, [3, 4], 5, [6, 7]];
-let subArr = arrr.filter(function (item) {
+const arrr = [1, 2, [3, 4], 5, [6, 7]];
+const subArr = arrr.filter(function (item) {
     return Array.isArray(item);
 })
 //20
-let arrN = [5, -3, 6, -5, 0, -7, 8, 9];
+const arrN = [5, -3, 6, -5, 0, -7, 8, 9];
 
-let negativeNumCount = arrN.filter(function (item) {
+const negativeNumCount = arrN.filter(function (item) {
     return item < 0;
 }).length;
 
