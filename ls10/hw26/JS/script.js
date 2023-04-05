@@ -71,12 +71,9 @@ console.log(includes(testArr, 'Апельсин'));
 console.log(includes(testArr, 'ыфвфы'));
 console.log(includes(testArr, 'Груша', -2));
 
-const every = (arr, callback, thisArg) => {
+const every = (arr, callback, thisArg = window) => {
     if (arr.length === 0) return true;
     const len = arr.length;
-    if (thisArg === null) {
-        thisArg = window;
-    }
     for (let i = 0; i < len; i++) {
         if (callback.length < 2) {
             if (!callback.call(thisArg, arr[i])) return false;
