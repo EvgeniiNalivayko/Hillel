@@ -54,7 +54,6 @@ const findIndex = (arr, callback, thisArg = window) => {
     return -1;
 }
 
-
 const testArr = ["Яблоко", "Апельсин", "Груша", "Лимон"];
 const includes = (arr, searchElement, fromIndex = 0) => {
     const len = arr.length
