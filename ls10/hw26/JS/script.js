@@ -1,14 +1,13 @@
 'use strict'
 const arrExp = [1, 2, 3, 4, 5, 5, 6, 6, 6, 77, 7, 'sea', 'asd', 'aaa']
 const indexOf = (arr, searchElement, fromIndex = 0) => {
-    const len = arr.length;
-    if (fromIndex >= len) return -1;
+    if (fromIndex >= arr.length) return -1;
     if (fromIndex < 0) {
-        for (let i = len - 1 + fromIndex; i >= 0; i--) {
+        for (let i = arr.length - 1 + fromIndex; i >= 0; i--) {
             if (arr[i] === searchElement) return i;
         }
     } else {
-        for (let i = fromIndex; i < len; i++) {
+        for (let i = fromIndex; i < arr.length; i++) {
             if (arr[i] === searchElement) return i;
         }
     }
@@ -18,21 +17,19 @@ console.log(indexOf(arrExp, 'sea', 1));
 
 const anyString = 'канал';
 const lastIndexOf = (str, searchElement, fromIndex = str.length) => {
-    const len = str.length;
-    if (fromIndex > len) fromIndex = str.length;
+    if (fromIndex > str.length) fromIndex = str.length;
     if (fromIndex < 0) fromIndex = 0;
-    if (fromIndex <= len) {
+    if (fromIndex <= str.length) {
         for (let i = fromIndex; i >= 0; i--) {
-            if (str[i] === searchElement) return i
+            if (str[i] === searchElement) return i;
         }
     }
     return -1;
 }
-console.log(lastIndexOf(anyString, 'а', 0));
+console.log(lastIndexOf(anyString, 'а', 2));
 
-const find = (arr, callback, thisArg = window) => {
-    const len = arr.length;
-    for (let i = 0; i < len; i++) {
+const find = (arr, callback, thisArg) => {
+    for (let i = 0; i < arr.length; i++) {
         if (callback.length < 2) {
             if (callback.call(thisArg, arr[i])) return arr[i];
         } else {
@@ -42,7 +39,7 @@ const find = (arr, callback, thisArg = window) => {
     return undefined;
 }
 
-const findIndex = (arr, callback, thisArg = window) => {
+const findIndex = (arr, callback, thisArg) => {
     const len = arr.length;
     for (let i = 0; i < len; i++) {
         if (callback.length < 2) {
@@ -54,15 +51,13 @@ const findIndex = (arr, callback, thisArg = window) => {
     return -1;
 }
 
-
 const testArr = ["Яблоко", "Апельсин", "Груша", "Лимон"];
 const includes = (arr, searchElement, fromIndex = 0) => {
-    const len = arr.length
     if (fromIndex < 0) {
-        fromIndex = fromIndex + len - 1;
+        fromIndex = fromIndex + arr.length - 1;
         if (fromIndex < 0) fromIndex = 0;
     }
-    for (let i = fromIndex; i < len; i++) {
+    for (let i = fromIndex; i < arr.length; i++) {
         if (arr[i] === searchElement) return true
     }
     return false
@@ -71,10 +66,9 @@ console.log(includes(testArr, 'Апельсин'));
 console.log(includes(testArr, 'ыфвфы'));
 console.log(includes(testArr, 'Груша', -2));
 
-const every = (arr, callback, thisArg = window) => {
+const every = (arr, callback, thisArg) => {
     if (arr.length === 0) return true;
-    const len = arr.length;
-    for (let i = 0; i < len; i++) {
+    for (let i = 0; i < arr.length; i++) {
         if (callback.length < 2) {
             if (!callback.call(thisArg, arr[i])) return false;
         } else {
@@ -83,7 +77,8 @@ const every = (arr, callback, thisArg = window) => {
     }
     return true;
 };
-const some = (arr, callback, thisArg = window) => {
+
+const some = (arr, callback, thisArg) => {
     if (arr.length === 0) return true;
     const len = arr.length;
     for (let i = 0; i < len; i++) {
