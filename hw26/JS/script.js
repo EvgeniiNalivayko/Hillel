@@ -28,28 +28,19 @@ const lastIndexOf = (str, searchElement, fromIndex = str.length) => {
 }
 console.log(lastIndexOf(anyString, 'а', 2));
 
-const find = (arr, callback, thisArg) => {
+const find = (arr, callback) => {
     for (let i = 0; i < arr.length; i++) {
-        if (callback.length < 2) {
-            if (callback.call(thisArg, arr[i])) return arr[i];
-        } else {
-            if (callback.call(thisArg, arr[i], i, arr)) return arr[i];
-        }
+        if (callback(arr[i], i, arr)) return arr[i];
     }
     return undefined;
 }
 
-const findIndex = (arr, callback, thisArg) => {
-    const len = arr.length;
-    for (let i = 0; i < len; i++) {
-        if (callback.length < 2) {
-            if (callback.call(thisArg, arr[i])) return i;
-        } else {
-            if (callback.call(thisArg, arr[i], i, arr)) return i;
-        }
+const findIndex = (arr, callback) => {
+    for (let i = 0; i < arr.length; i++) {
+        if (callback(arr[i], i, arr)) return i;
     }
     return -1;
-}
+};
 
 const testArr = ["Яблоко", "Апельсин", "Груша", "Лимон"];
 const includes = (arr, searchElement, fromIndex = 0) => {
@@ -66,26 +57,19 @@ console.log(includes(testArr, 'Апельсин'));
 console.log(includes(testArr, 'ыфвфы'));
 console.log(includes(testArr, 'Груша', -2));
 
-const every = (arr, callback, thisArg) => {
+const every = (arr, callback) => {
     if (arr.length === 0) return true;
     for (let i = 0; i < arr.length; i++) {
-        if (callback.length < 2) {
-            if (!callback.call(thisArg, arr[i])) return false;
-        } else {
-            if (!callback.call(thisArg, arr[i], i, arr)) return false;
-        }
+        if (!callback(arr[i], i, arr)) return false;
     }
     return true;
 };
 
-const some = (arr, callback, thisArg) => {
+
+const some = (arr, callback) => {
     if (arr.length === 0) return true;
     for (let i = 0; i < arr.length; i++) {
-        if (callback.length < 2) {
-            if (callback.call(thisArg, arr[i])) return true;
-        } else {
-            if (callback.call(thisArg, arr[i], i, arr)) return true;
-        }
+        if (callback(arr[i], i, arr)) return true;
     }
     return false;
 };
