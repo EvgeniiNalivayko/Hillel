@@ -1,33 +1,46 @@
 const mainFunction = (callback) => {
     let number;
     let expon;
-
-    do {
+    for (; ;) {
         number = prompt('Введите число:');
-    } while (isNaN(number) || number === null);
+        if (!isNaN(number) && number !== null) {
+            break;
+        }
+    }
 
-    do {
+    for (; ;) {
         expon = prompt('Введите степень числа:');
-    } while (isNaN(expon) || expon === null);
-
+        if (!isNaN(expon) && expon !== null) {
+            break;
+        }
+    }
     callback(+number, +expon);
+
 }
 
 const exponentiation = (number, expon) => {
+    const operator = '**';
     const result = number ** expon;
-    alert(`${number} ** ${expon} = ${result}`)
+    alert(`${number} ${operator} ${expon} = ${result}`);
+    return result;
 }
 const multiplay = (number, expon) => {
+    const operator = '*';
     const result = number * expon;
-    alert(`${number} * ${expon} = ${result}`)
+    alert(`${number} ${operator} ${expon} = ${result}`);
+    return result;
 }
 const division = (number, expon) => {
+    const operator = '/';
     const result = number / expon;
-    alert(`${number} / ${expon} = ${result}`)
+    alert(`${number} ${operator} ${expon} = ${result}`);
+    return result;
 }
 const modulo = (number, expon) => {
+    const operator = '%';
     const result = number % expon;
-    alert(`${number} % ${expon} = ${result}`)
+    alert(`${number} ${operator} ${expon} = ${result}`);
+    return result;
 }
 
 mainFunction(exponentiation);
