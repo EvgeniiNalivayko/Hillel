@@ -4,7 +4,7 @@
         read() {
             this.a = Number(prompt('Введите первое число:', ''));
             this.b = Number(prompt('Введите второе число:', ''));
-            if (typeof this.a !== 'number' && typeof this.b !== 'number') throw new Error('Enter correct numbers')
+            if (isNaN(this.a) || isNaN(this.b) || !this.a || !this.b) throw new Error('Enter correct numbers');
         },
         sum() {
             return this.a + this.b;
