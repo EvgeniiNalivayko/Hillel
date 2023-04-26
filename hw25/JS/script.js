@@ -1,10 +1,10 @@
 'use strict'
 //1
-let arr = ['a', 'b', 'c', 'd'];
-let str = arr.slice(0, 2).join('+') + ', ' + arr.slice(2, 4).join('+');
+const arr = ['a', 'b', 'c', 'd'];
+const str = arr.slice(0, 2).join('+') + ', ' + arr.slice(2, 4).join('+');
 //2
-let arr2 = [2, 5, 3, 9];
-let result = arr2.reduce(function (acc, curr, index) {
+const arr2 = [2, 5, 3, 9];
+const result = arr2.reduce((acc, curr, index) => {
     if (index % 2 === 0) {
         acc += curr * arr2[index + 1];
     }
@@ -12,24 +12,24 @@ let result = arr2.reduce(function (acc, curr, index) {
 }, 0);
 console.log(result);
 //3
-let arr3 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
-let newArr3 = arr3[1][0];
+const arr3 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+const newArr3 = arr3[1][0];
 console.log(newArr3);
 //4
 const obj = {js: ['jQuery', 'Angular'], php: 'hello', css: 'world'}
 console.log(obj.js[0]);
 //5
-let arr5 = [];
+const arr5 = [];
 arr5.unshift('x', 'xx', 'xxx');
 //6
-let arr6 = [];
+const arr6 = [];
 arr6.unshift(1, 22, 333);
 //7
 const arrayFill = (element, length) => {
     return Array(length).fill(element);
 };
 //8
-let arr8 = [1, 2, 3, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 2];
+const arr8 = [1, 2, 3, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 2];
 
 const result2 = arr8.reduce((acc, element) => {
     if (acc.sum <= 10) {
@@ -66,6 +66,4 @@ const sumArrElement = (arr) => {
 const task10 = sumArrElement(arr10);
 //11
 const arr11 = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]];
-const task11 = sumArrElement(arr11)
-
-
+const task11 = sumArrElement(arr11);
