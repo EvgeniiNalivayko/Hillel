@@ -18,7 +18,6 @@ const multiply = (a, b) => {
 
 const divide = (a, b) => {
     if (b === 0) throw new Error('Деление на 0')
-
     const result = a / b;
     console.log(`Результат: ${a} / ${b} = ${result}`);
     return result;
