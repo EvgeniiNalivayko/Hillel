@@ -1,6 +1,11 @@
 'use script';
 (function () {
     const createTable = (rows = 10, cells = 10) => {
+        if (typeof rows !== 'number' || typeof cells !== 'number' || rows <= 0 || cells <= 0) {
+            console.error('Invalid input params');
+            return;
+        }
+
         const uniqNums = [];
         const fragment = document.createDocumentFragment();
         const table = document.createElement('table');
