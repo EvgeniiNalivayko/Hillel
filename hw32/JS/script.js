@@ -1,7 +1,8 @@
 'use strict';
 (function () {
     const arr4 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
-    const myFlat = (arr) => {
+    const myFlat = (...arr) => {
+        if (arr.length > 1) throw new Error('More than 1 arg');
         const newArr = [];
         const flatten = arr => {
             arr.forEach(el => (Array.isArray(el) ? flatten(el) : newArr.push(el)));
