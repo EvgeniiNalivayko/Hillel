@@ -54,7 +54,7 @@ void function () {
         event.stopPropagation();
         const todoItem = event.target.closest('[data-id]');
         if (!todoItem) return;
-        const itemId = todoItem.getAttribute('data-id');
+        const itemId = Number(todoItem.getAttribute('data-id'));
 
         const existingData = getTodoItems();
         const updatedData = existingData.filter(item => Number(itemId) !== item.id);
