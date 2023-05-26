@@ -27,12 +27,11 @@ void function () {
 
     const saveTodoItem = (dataToSave) => {
         const existingData = getTodoItems();
-        console.log(existingData);
         const dataClone = {...dataToSave, id: currentId}
         existingData.push(dataClone);
         localStorage.setItem('todoListData', JSON.stringify(existingData));
         currentId += 1;
-        return dataToSave;
+        return dataClone;
     }
 
     form.addEventListener('submit', (event) => {
@@ -55,7 +54,7 @@ void function () {
         const todoItem = event.target.closest('[data-id]');
         if (!todoItem) return;
         const itemId = Number(todoItem.getAttribute('data-id'));
-
+        console.log(itemId);
         const existingData = getTodoItems();
         const updatedData = existingData.filter(item => Number(itemId) !== item.id);
         localStorage.setItem('todoListData', JSON.stringify(updatedData));
