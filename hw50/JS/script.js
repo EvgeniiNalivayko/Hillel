@@ -54,7 +54,6 @@ void function () {
         const todoItem = event.target.closest('[data-id]');
         if (!todoItem) return;
         const itemId = Number(todoItem.getAttribute('data-id'));
-        console.log(itemId);
         const existingData = getTodoItems();
         const updatedData = existingData.filter(item => Number(itemId) !== item.id);
         localStorage.setItem('todoListData', JSON.stringify(updatedData));
