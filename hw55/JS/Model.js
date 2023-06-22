@@ -21,12 +21,10 @@ const Model = {
         const savedData = this.getData();
         const dataToSave = {...data, id: this.currentId};
         savedData.push(dataToSave);
-
         this.storage.setItem(this.dataKey, JSON.stringify(savedData))
         const savedItem = this.getDataById(this.currentId);
         this.currentId += 1;
         return savedItem;
-
     },
 
     deleteItem(id) {
@@ -34,7 +32,7 @@ const Model = {
         const index = savedData.findIndex(item => item.id === id)
         const removeEl = savedData.splice(index, 1)
         localStorage.setItem(this.dataKey, JSON.stringify(savedData))
-        return removeEl[0 ];
+        return removeEl[0];
     },
 
     init(storage, dataKey) {
