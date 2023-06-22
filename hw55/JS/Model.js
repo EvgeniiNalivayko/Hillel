@@ -29,6 +29,13 @@ const Model = {
 
     },
 
+    deleteItem(id) {
+        const savedData = this.getData();
+        const index = savedData.findIndex(item => item.id === id)
+        const removeEl = savedData.splice(index, 1)
+        localStorage.setItem(this.dataKey, JSON.stringify(savedData))
+        return removeEl[0 ];
+    },
 
     init(storage, dataKey) {
         this.storage = storage;
