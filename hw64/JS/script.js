@@ -12,28 +12,31 @@
         const currentYear = new Date().getFullYear();
         return currentYear - this.birthYear;
     }
+
     Student.prototype.gradePointAverage = function () {
         const validGrades = this.marksArr.filter(item => item != null)
         if (validGrades.length === 0) return;
         const sumGrades = validGrades.reduce((acc, grade) => acc + grade, 0)
-        console.log(sumGrades);
         return sumGrades / validGrades.length;
     }
+
     Student.prototype.present = function () {
         if (this.attendanceList.length > 10) throw new Error('Количество занятий ошибочно')
         const emptyItemIndex = this.attendanceList.findIndex(item => item === null)
         if (emptyItemIndex !== -1) return this.attendanceList[emptyItemIndex] = true;
     }
+
     Student.prototype.absent = function () {
         if (this.attendanceList.length > 10) throw new Error('Количество занятий ошибочно')
         const emptyItemIndex = this.attendanceList.findIndex(item => item === null)
-        if (emptyItemIndex != -1) return this.attendanceList[emptyItemIndex] = false;
+        if (emptyItemIndex !== -1) return this.attendanceList[emptyItemIndex] = false;
     }
+
     Student.prototype.mark = function (mark) {
         if (mark > 10 || mark < 0) throw new Error('Мы учимся по 10бальной системе')
         if (this.attendanceList.length > 10) throw new Error('Количество занятий ошибочно')
         const emptyItemIndex = this.marksArr.findIndex(item => item === null)
-        if (emptyItemIndex != -1) return this.marksArr[emptyItemIndex] = mark;
+        if (emptyItemIndex !== -1) return this.marksArr[emptyItemIndex] = mark;
 
     }
 
@@ -53,7 +56,7 @@
     }
 
 
-    const student = new Student('Петя');
+    const student = new Student('Петя', 'Петро', 2006);
     student.present();
     student.present();
     student.present();
