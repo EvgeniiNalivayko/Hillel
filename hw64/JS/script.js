@@ -37,7 +37,6 @@
         if (this.attendanceList.length > 10) throw new Error('Количество занятий ошибочно')
         const emptyItemIndex = this.marksArr.findIndex(item => item === null)
         if (emptyItemIndex !== -1) return this.marksArr[emptyItemIndex] = mark;
-
     }
 
     Student.prototype.summary = function () {
@@ -52,8 +51,6 @@
         } else {
             return "Редиска!";
         }
-
-
     }
 
 
