@@ -1,9 +1,9 @@
 'use strict';
 (function () {
-    function Student() {
-        this.firstName = "firstName";
-        this.lastName = "lastName";
-        this.birthYear = null;
+    function Student(firstName, lastName, birthYear) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthYear = birthYear;
         this.marksArr = new Array(10).fill(null);
         this.attendanceList = new Array(10).fill(null);
     }
@@ -16,44 +16,51 @@
         const validGrades = this.marksArr.filter(item => item != null)
         if (validGrades.length === 0) return;
         const sumGrades = validGrades.reduce((acc, grade) => acc + grade, 0)
+        console.log(sumGrades);
         return sumGrades / validGrades.length;
     }
     Student.prototype.present = function () {
         if (this.attendanceList.length > 10) throw new Error('Количество занятий ошибочно')
-        const emptyItemIndex = this.attendanceList.findIndex(item => item === undefined)
-        if (emptyItemIndex != -1) return this.attendanceList[emptyItemIndex] = true;
+        const emptyItemIndex = this.attendanceList.findIndex(item => item === null)
+        if (emptyItemIndex !== -1) return this.attendanceList[emptyItemIndex] = true;
     }
     Student.prototype.absent = function () {
         if (this.attendanceList.length > 10) throw new Error('Количество занятий ошибочно')
-        const emptyItemIndex = this.attendanceList.findIndex(item => item === undefined)
+        const emptyItemIndex = this.attendanceList.findIndex(item => item === null)
         if (emptyItemIndex != -1) return this.attendanceList[emptyItemIndex] = false;
     }
     Student.prototype.mark = function (mark) {
         if (mark > 10 || mark < 0) throw new Error('Мы учимся по 10бальной системе')
         if (this.attendanceList.length > 10) throw new Error('Количество занятий ошибочно')
-        const emptyItemIndex = this.marksArr.findIndex(item => item === undefined)
+        const emptyItemIndex = this.marksArr.findIndex(item => item === null)
         if (emptyItemIndex != -1) return this.marksArr[emptyItemIndex] = mark;
-        console.log('Массив полон')
+
     }
 
     Student.prototype.summary = function () {
-        const average = this.gradePointAverage();
+        const averageGrade = this.gradePointAverage();
+        const attendanceCount = this.attendanceList.filter(item => item !== null).length
         const sumOfAttendance = this.attendanceList.reduce((acc, item) => acc + item, 0)
-        const calculateAverageAttendance = sumOfAttendance / this.lessons
-        if (calculateAverageAttendance > 0.9 && average > 9) console.log("Ути какой молодчинка!");
-        else if (calculateAverageAttendance > 0.9 || average > 9) console.log("Норм, но можно лучше")
-        else if (calculateAverageAttendance < 0.9 && average < 9) console.log("Редиска!")
-        // else console.log()
+        const averageOfAttendance = sumOfAttendance / attendanceCount
+        if (averageGrade >= 9 && averageOfAttendance >= 0.9) {
+            return "Ути какой молодчинка!";
+        } else if (averageGrade > 9 || averageOfAttendance > 0.9) {
+            return "Норм, но можно лучше";
+        } else {
+            return "Редиска!";
+        }
+
     }
 
 
-    const student = new Student();
+    const student = new Student('Петя');
     student.present();
     student.present();
     student.present();
-    // student.absent();
+    student.absent();
+    student.mark(7);
     student.mark(10);
     student.mark(10);
-    student.mark(8);
     const summary = student.summary();
+    console.log(summary);
 })()
