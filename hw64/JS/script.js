@@ -23,7 +23,11 @@
     Student.prototype.present = function () {
         if (this.attendanceList.length > 10) throw new Error('Количество занятий ошибочно')
         const emptyItemIndex = this.attendanceList.findIndex(item => item === null)
-        if (emptyItemIndex !== -1) return this.attendanceList[emptyItemIndex] = true;
+            if (emptyItemIndex !== -1) {
+               const pres = this.attendanceList[emptyItemIndex] = true;
+               return pres;
+            }
+
     }
 
     Student.prototype.absent = function () {
@@ -35,8 +39,9 @@
     Student.prototype.mark = function (mark) {
         if (mark > 10 || mark < 0) throw new Error('Мы учимся по 10бальной системе')
         if (this.attendanceList.length > 10) throw new Error('Количество занятий ошибочно')
-        const emptyItemIndex = this.marksArr.findIndex(item => item === null)
-        if (emptyItemIndex !== -1) return this.marksArr[emptyItemIndex] = mark;
+        const emptyItemIndex = this.attendanceList.filter(item => item !== null)
+        const truePlace = emptyItemIndex.length
+        if (emptyItemIndex !== -1) return this.marksArr[truePlace] = mark;
     }
 
     Student.prototype.summary = function () {
@@ -56,12 +61,15 @@
 
     const student = new Student('Петя', 'Петро', 2006);
     student.present();
+    student.mark(7);
     student.present();
     student.present();
     student.absent();
-    student.mark(7);
-    student.mark(10);
+    student.present();
     student.mark(10);
     const summary = student.summary();
     console.log(summary);
+    console.log(student.marksArr);
+    console.log(student.attendanceList);
+
 })()
