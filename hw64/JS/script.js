@@ -41,7 +41,7 @@
         if (this.attendanceList.length > 10) throw new Error('Количество занятий ошибочно')
         const emptyItemIndex = this.attendanceList.filter(item => item !== null)
         const truePlace = emptyItemIndex.length
-        if (emptyItemIndex !== -1) return this.marksArr[truePlace] = mark;
+        return this.marksArr[truePlace] = mark;
     }
 
     Student.prototype.summary = function () {
