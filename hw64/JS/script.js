@@ -48,7 +48,6 @@
         const attendanceCount = this.attendanceList.filter((item) => item !== null).length;
         const sumOfAttendance = this.attendanceList.reduce((acc, item) => acc + item, 0);
         return sumOfAttendance / attendanceCount;
-
     }
 
     Student.prototype.summary = function () {
@@ -61,7 +60,6 @@
         if (averageGrade > 9 || attendanceAverage > 0.9) {
             return 'Норм, но можно лучше';
         } else return 'Редиска!';
-
     };
 
     const student = new Student('Петя', 'Петров', 1999);
