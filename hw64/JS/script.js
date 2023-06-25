@@ -40,7 +40,7 @@
         if (mark > 10 || mark < 0) throw new Error('Мы учимся по 10бальной системе')
         if (this.attendanceList.length > 10) throw new Error('Количество занятий ошибочно')
         const emptyItemIndex = this.attendanceList.filter(item => item !== null)
-        const truePlace = emptyItemIndex.length
+        const truePlace = emptyItemIndex.length-1;
         return this.marksArr[truePlace] = mark;
     }
 
