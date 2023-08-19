@@ -1,0 +1,36 @@
+
+.album {
+  padding: 100px;
+
+  .album__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+
+    &-item {
+      border-radius: 5px;
+      padding: 5px 10px;
+      border: 1px solid #ccc;
+      color: #f7f7f7;
+      background-color: darkviolet;
+
+      :hover {
+        background-color: #ddd;
+      }
+    }
+  }
+}
+
+.album-images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 10px;
+  padding: 100px;
+  &__item {
+    width: 150px;
+    height: 150px;
+  }
+}
