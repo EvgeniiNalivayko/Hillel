@@ -17,7 +17,6 @@ class View {
         });
     }
 
-
     renderImages(images) {
         images.forEach(image => {
             const imgElement = document.createElement('img');
