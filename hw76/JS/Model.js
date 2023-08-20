@@ -17,7 +17,6 @@ class Model {
     async getAlbumsPhoto(id){
         try {
             const response = await fetch(`${this.QUERY_LINKS.PHOTOS}${id}`)
-            console.log(response);
             const data = response.json();
             return data;
         }catch (error){
